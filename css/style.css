@@ -1,0 +1,413 @@
+ body {
+     padding: 0;
+     margin: 0;
+     background: #101921;
+     font-family: Arial, Helvetica, sans-serif;
+ }
+
+ nav {
+     position: sticky;
+     top: 0;
+     z-index: 100;
+     background: #172330;
+     height: 100px;
+     display: flex;
+     justify-content: space-between;
+ }
+
+ nav a {
+     display: inline-flex;
+     gap: 10px;
+     text-decoration: none;
+     color: rgb(255, 255, 255);
+ }
+
+ nav h1 {
+     margin-top: 25px;
+ }
+
+ nav img {
+     width: 100px;
+     border-radius: 50PX;
+ }
+
+ nav ul {
+     margin-top: 35px;
+     font-weight: bolder;
+     font-size: large;
+     list-style: none;
+     display: flex;
+     gap: 10px;
+ }
+
+ nav ul li {
+     position: relative;
+ }
+
+ nav ul:hover {
+     color: blue;
+ }
+
+ nav ul li::after {
+     content: "";
+     position: absolute;
+     background-color: yellow;
+     height: 3px;
+     width: 0%;
+     top: 20px;
+     left: 0;
+     transition: width 0.3s ease;
+ }
+
+ nav ul li:hover::after {
+     width: 100%;
+ }
+
+ .login,
+ .signup {
+     margin-top: -15px;
+     height: 45px;
+     width: 80px;
+     border: 0;
+     cursor: pointer;
+     border-radius: 10px;
+ }
+
+ .login {
+
+     background: #092b50;
+     color: #126ec9;
+ }
+
+ .login:hover {
+     background-color: #11273e;
+ }
+
+ .signup {
+
+     background: #137fec;
+     color: white;
+ }
+
+ .signup:hover {
+     background-color: #5fafff;
+ }
+
+ .pic p {
+     color: white;
+     text-align: center;
+     position: absolute;
+     font-size: x-large;
+     margin: 100px auto 0;
+     position: absolute;
+     top: 300px;
+     right: 0px;
+     bottom: 0px;
+     z-index: 3;
+     left: 0px;
+ }
+
+
+ .pic h2 {
+     color: white;
+     font-weight: bolder;
+     font-size: 70px;
+     text-align: center;
+     margin: 0 auto;
+     position: absolute;
+     top: 200px;
+     right: 0px;
+     bottom: 0px;
+     left: 0px;
+     z-index: 0;
+
+
+ }
+
+ .pic a .Explore {
+     height: 45px;
+     width: 200px;
+     border: 0;
+     border-radius: 10px;
+     background-color: #137fec;
+     color: white;
+     margin: 0 auto;
+     position: absolute;
+     top: 550px;
+     right: 0px;
+     bottom: 0px;
+     left: 0px;
+     z-index: 10;
+     cursor: pointer;
+     transition: background .3s ease, transform .12s ease;
+ }
+
+ .pic a .Explore:hover {
+     transform: translateY(-3px);
+     background: #5fafff;
+ }
+
+ .pic img {
+     width: 1200px;
+     height: 600px;
+     margin: 0 auto;
+     filter: brightness(30%);
+     position: absolute;
+     top: 130px;
+     right: 0px;
+     bottom: 0px;
+     left: 0px;
+     border-radius: 10px;
+     z-index: -1;
+ }
+
+ .tip {
+     box-sizing: border-box;
+     position: relative;
+     max-width: 1200px;
+     width: 90%;
+     margin: 700px auto 0;
+     padding: 20px;
+ }
+
+ .tip .steps {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     gap: 22px;
+     padding: 0;
+     align-items: start;
+     justify-items: stretch;
+ }
+
+ .tip .step-card {
+     background-color: #0e1421;
+     border-radius: 20px;
+     border: 1px solid #1c2a3a;
+     transition: transform .25s ease, box-shadow .25s ease;
+     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+ }
+
+ .tip .head h3,
+ .tip .head p {
+     text-align: center;
+ }
+
+ .tip .head h3 {
+     color: #ffffff;
+     font-size: 50px;
+     margin-bottom: 14px;
+     font-weight: 700px;
+ }
+
+ .tip .head p {
+     color: #7f98ab;
+     font-size: 24px;
+     font-weight: 100px;
+     margin-bottom: 60px;
+ }
+
+ .steps img {
+     width: 10%;
+     display: block;
+     height: 50px;
+     margin-top: 15px;
+     margin-left: 20px;
+     object-fit: fill;
+
+ }
+
+ .info {
+     margin-left: 20px;
+ }
+
+ .activities {
+     box-sizing: border-box;
+     position: relative;
+     max-width: 1200px;
+     /* container width */
+     width: 90%;
+     /* responsive width */
+     margin: 100px auto 0;
+     padding: 20px;
+ }
+
+ .main h3 {
+     text-align: left;
+     font-size: 28px;
+     margin-bottom: 14px;
+     color: #ffffff;
+     font-weight: 700;
+ }
+
+ .activities h3 {
+     margin-left: -70px;
+ }
+
+ .activities-card {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     gap: 30px;
+     margin-left: -70px;
+     padding: 0;
+     align-items: start;
+     justify-items: stretch;
+ }
+
+ .activities-card img {
+     width: 100%;
+     display: block;
+     height: 150px;
+     object-fit: cover;
+ }
+
+ .info {
+     margin-top: 10px;
+ }
+
+ /* Card wrapper for each activity item */
+ .activities-card .card-item {
+     background-color: #0b2130;
+     border-radius: 12px;
+     overflow: hidden;
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     transition: transform .25s ease, box-shadow .25s ease;
+     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+     margin-bottom: 38px;
+ }
+
+ .activities-card .card-item .card-content {
+     padding: 30px 14px 19px 14px;
+     color: #e6f0ff;
+ }
+
+ .main h4 {
+     margin: 0 0 6px 0;
+     font-size: 1rem;
+     color: #ffffff;
+ }
+
+ .activities-card .card-item p {
+     margin: 0;
+     color: #9fb0c6;
+     font-size: 0.9rem;
+ }
+
+ .main p {
+     margin-top: 20px;
+     color: #7f98ab;
+     font-size: 0.82rem;
+     text-transform: capitalize;
+
+ }
+
+
+ .activities-card .card-item:hover {
+     transform: translateY(-10px);
+     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+ }
+
+ .step-card:hover {
+     transform: translateY(-10px);
+     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+ }
+
+
+ .activities-card .learn-btn {
+     margin-top: 14px;
+     background: rgba(255, 255, 255, 0.06);
+     color: #eaf6ff;
+     border: 0;
+     padding: 12px 16px;
+     border-radius: 10px;
+     width: 100%;
+     font-weight: 700;
+     cursor: pointer;
+     transition: background .3s ease, transform .12s ease;
+ }
+
+ .activities-card .learn-btn:hover {
+     background: rgba(255, 255, 255, 0.09);
+     transform: translateY(-2px);
+ }
+
+ footer {
+     background: #172330;
+     display: grid;
+     justify-content: space-evenly;
+     align-items: center;
+ }
+
+ footer .about {
+     margin-top: -50px;
+
+ }
+
+ .main footer table td p {
+     font-size: large;
+ }
+
+ .main footer table td img {
+     display: inline-flex;
+     width: 15%;
+     height: 40px;
+     margin-top: -10px;
+ }
+
+ footer a {
+     text-decoration: none;
+     padding: 5px;
+ }
+
+ footer ul {
+     list-style: none;
+     margin-top: -20px;
+     margin-left: -20px;
+ }
+
+ footer ul a {
+     color: #7f98ab;
+     text-decoration: none;
+     gap: 20px;
+     padding: 20px;
+     font-size: large;
+ }
+
+
+
+ @media (max-width:900px) {
+     .activities-card {
+         grid-template-columns: repeat(2, 1fr);
+     }
+
+     .step-card {
+         grid-template-columns: repeat(2, 1fr);
+     }
+
+     .step-card img {
+         height: 160px;
+     }
+
+     .activities-card img {
+         height: 160px;
+     }
+ }
+
+ @media (max-width:560px) {
+     .activities-card {
+         grid-template-columns: 1fr;
+     }
+
+     .step-card {
+         grid-template-columns: 1fr;
+     }
+
+     .activities-card img {
+         height: 140px;
+     }
+
+     .step-card img {
+         height: 140px;
+     }
+ }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="css/registeration.css">
+</head>
+
+<body>
+
+    <a href="index.html" class="LOGO">
+        <img src="assets/download.jpg" alt="University images" />
+        <h1>SAR NMU</h1>
+    </a>
+
+    <div class="card">
+        <h1>Create Your Account</h1>
+        <span>Register for Student Activities</span><br><br>
+        <form method="post" action="post">
+
+            <div class="username-container">
+                <label for="username">Username</label><br>
+                <input type="text" id="username" name="username" placeholder="Enter a username" required>
+            </div>
+            <div class="email-container">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="example@nmu.edu.eg" required>
+            </div>
+            <div class="password-container">
+                <label for="password">Password</label><br>
+                <input type="password" id="password" name="password" placeholder="Enter your password" minlength="8"
+                    maxlength="16" required><br>
+                <span> Must be at least 8 characters long. <br>
+                    Must Contain a Uppercase letter <br>
+                    Must Contain a Special character ex. @ _ # $
+                </span><br><br>
+                <label for="confirm-password">Confirm password</label>
+                <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm your password"
+                    required> <br><br>
+                <button type="submit">Create Account</button>
+                <br><br>
+                <hr>
+                <p>Already have an account? <a href="Login.html">Sign In</a></p>
+
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

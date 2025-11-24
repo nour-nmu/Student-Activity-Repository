@@ -1,0 +1,138 @@
+body {
+    position: relative;
+    background-color: #101922;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+
+.LOGO {
+    margin: auto auto auto -700px;
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    bottom: 0px;
+    left: 000px;
+    gap: 15px;
+    display: inline-flex;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+}
+
+a h1 {
+    color: aliceblue;
+}
+
+img {
+    width: 80px;
+    border-radius: 40px;
+    box-sizing: border-box;
+    border: 0;
+}
+
+h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+
+
+.ss,
+.card {
+    margin: 0 auto;
+    position: absolute;
+    top: 100px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: #1f252c;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border-radius: 10px;
+    padding: 30px;
+    width: 921.6px;
+}
+
+.ss {
+    height: 500px;
+}
+
+.card {
+    height: 720px;
+
+}
+
+a {
+    text-decoration: none;
+    color: #1473d2;
+}
+
+
+
+span {
+    text-align: center;
+    color: #748192;
+}
+
+.username-container,
+.password-container,
+.email-container {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.username-container label,
+.password-container label,
+.email-container label {
+    font-size: 18px;
+    color: #d1d5db;
+}
+
+.username-container input,
+.password-container input,
+.email-container input {
+    padding: 18px;
+    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #171e2a;
+    border: none;
+    border-radius: 10px;
+    color: white;
+}
+
+.username-container input:focus,
+.password-container input:focus,
+.email-container input:focus {
+    outline: none;
+    border: 1px solid blue;
+}
+
+
+.forgetpass {
+    position: absolute;
+    right: 20px;
+    text-align: right;
+}
+
+button {
+    height: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #1473d2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+hr {
+    margin: 0;
+    border-block-color: #1d2735;
+}
