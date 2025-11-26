@@ -1,0 +1,167 @@
+ body {
+     padding: 0;
+     margin: 0;
+     background: #101921;
+     font-family: Arial, Helvetica, sans-serif;
+ }
+
+ nav {
+     position: sticky;
+     top: 0;
+     z-index: 100;
+     background: #172330;
+     height: 100px;
+     display: flex;
+     justify-content: space-between;
+ }
+
+ nav a {
+     display: inline-flex;
+     gap: 10px;
+     text-decoration: none;
+     color: rgb(255, 255, 255);
+ }
+
+ nav h1 {
+     margin-top: 25px;
+ }
+
+ nav img {
+     width: 100px;
+     border-radius: 50PX;
+ }
+
+ nav ul {
+     margin-top: 35px;
+     font-weight: bolder;
+     font-size: large;
+     list-style: none;
+     display: flex;
+     gap: 10px;
+ }
+
+ nav ul li {
+     position: relative;
+ }
+
+ nav ul:hover {
+     color: blue;
+ }
+
+ nav ul li::after {
+     content: "";
+     position: absolute;
+     background-color: yellow;
+     height: 3px;
+     width: 0%;
+     top: 20px;
+     left: 0;
+     transition: width 0.3s ease;
+ }
+
+ nav ul li:hover::after {
+     width: 100%;
+ }
+
+
+ /* nav ul li.active::after {
+     width: 100%;
+     background-color: yellow;
+ } */
+
+ nav ul li a.active {
+     color: #137fec;
+ }
+
+ .login,
+ .signup {
+     margin-top: -15px;
+     height: 45px;
+     width: 80px;
+     border: 0;
+     cursor: pointer;
+     border-radius: 10px;
+ }
+
+ .login {
+
+     background: #092b50;
+     color: #126ec9;
+ }
+
+ .login:hover {
+     background-color: #11273e;
+ }
+
+ .signup {
+
+     background: #137fec;
+     color: white;
+ }
+
+ .signup:hover {
+     background-color: #5fafff;
+ }
+
+ h1 {
+     color: white;
+     font-size: 45px;
+     margin-top: 40px;
+     margin-bottom: 0;
+ }
+
+ p {
+     color: #859eb8;
+     font-size: 20px;
+     margin-top: 5px;
+
+ }
+
+ footer {
+     background: #172330;
+     display: grid;
+     justify-content: space-evenly;
+     align-items: center;
+ }
+
+ footer .about {
+     margin-top: -50px;
+
+ }
+
+ footer h3 {
+     text-align: left;
+     font-size: 28px;
+     color: #ffffff;
+     font-weight: 700;
+ }
+
+ .main footer table td p {
+     font-size: large;
+ }
+
+ .main footer table td img {
+     display: inline-flex;
+     /* width: 15%; */
+     height: 40px;
+     margin-top: -10px;
+ }
+
+ footer a {
+     text-decoration: none;
+     padding: 5px;
+ }
+
+ footer ul {
+     list-style: none;
+     margin-top: -20px;
+     margin-left: -20px;
+ }
+
+ footer ul a {
+     color: #7f98ab;
+     text-decoration: none;
+     gap: 20px;
+     padding: 20px;
+     font-size: large;
+ }

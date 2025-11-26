@@ -1,0 +1,154 @@
+.head {
+    display: grid;
+    margin: 10% auto 10%;
+    position: absolute;
+    top: -52px;
+    right: 0px;
+    bottom: 0px;
+    left: 0;
+    gap: 15px;
+    width: 921.6px;
+    height: fit-content;
+}
+
+form {
+    margin: 10% auto;
+    position: absolute;
+    top: 110px;
+    right: 0px;
+    bottom: 0px;
+    left: 0;
+    height: fit-content;
+    border: 1px solid #233445;
+    background-color: #121d26;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 30px;
+    width: 921.6px;
+}
+
+form h2 {
+    color: #ffffff;
+    font-size: 36px;
+    margin-bottom: 20px;
+
+}
+
+form label {
+    color: #859eb8;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 0px;
+}
+
+.name,
+.event,
+.description,
+.location,
+.date,
+.target,
+.Resources {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.event-details input,
+.event-details textarea,
+.event-details select,
+.logistics input,
+.date input,
+.resources input {
+    padding: 18px;
+    width: 100%;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    background-color: #171e2a;
+    border: none;
+    border-radius: 10px;
+    color: white;
+}
+
+.Resources input {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+/* Resource checkbox grid */
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 12px;
+}
+
+.resource-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.resource-item label {
+    color: #d9eefc;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* custom checkbox appearance */
+.resource-item input[type="checkbox"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 2px solid rgba(255, 255, 255, 0.07);
+    ;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.resource-item input[type="checkbox"]:checked {
+    background: #137fec;
+    border-color: #137fec;
+}
+
+.resource-item input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.book {
+    width: 30%;
+    height: 50px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: none;
+    background-color: #137fec;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 70%;
+}
+
+@media (max-width: 900px) {
+    .resource-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .resource-grid {
+        grid-template-columns: 1fr;
+    }
+}

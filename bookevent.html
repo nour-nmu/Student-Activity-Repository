@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book An Event</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/event.css">
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" class="LOGO">
+            <img src="assets/download.jpg" alt="University images" />
+            <h1>SAR NMU</h1>
+        </a>
+        <ul>
+            <li>
+                <a href="#">
+                    Events Calendar
+                </a>
+            </li>
+            <li>
+                <a href="bookevent.html">
+                    Book an Event
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    My Activities
+                </a>
+            </li>
+            <li>
+                <a href="contact-us.html">
+                    Contact Us
+                </a>
+            </li>
+
+            <a href="Login.html">
+                <button class="login">Log In</button>
+            </a>
+
+
+            <a href="register.html">
+                <button class="signup">Sign Up</button>
+            </a>
+
+        </ul>
+    </nav>
+
+    <div class="head">
+        <h1>Book a New Event or Activity</h1>
+        <p>Please Fill out the form below to reserve your spot.</p>
+    </div>
+    <form action="#" method="post">
+        <h2>Event Details</h2>
+        <hr>
+        <div class="event-details">
+            <label for="name">Event Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="e.g., Computer Science Welcome Week Seminar"
+                required><br>
+
+            <label for="event">Event Type:</label><br>
+            <select name="event" id="event" required><br><br>
+                <option value="select-event" disabled selected>Select Event Type</option>
+                <option value="lecture">Lecture</option>
+                <option value="seminar">Seminar</option>
+                <option value="workshop">Workshop</option>
+                <option value="club-meeting">Club Meeting</option>
+            </select>
+
+            <br><br>
+
+            <label for="description">Event Description</label>
+            <textarea id="description" name="description" rows="4"
+                placeholder="Provide a brief description of the event..." required></textarea><br><br>
+
+        </div>
+
+
+        <h2>Logistics</h2>
+        <hr>
+        <div class="logistics">
+            <label for="location">location</label><br>
+            <input type="text" id="location" name="location" placeholder="e.g., Room 101, Science Building" required>
+            <label for="date">Date & time</label><br>
+            <input type="datetime-local" id="date" name="date" required><br><br>
+        </div>
+        <h2>Audience & Resource</h2>
+        <hr>
+        <div class="resources">
+            <label for="target">Audience Target</label><br>
+            <input type="text" id="target" name="target"
+                placeholder="e.g., First-year students, Computer Science majors" required><br><br>
+            <label for="Resources">Required Resources</label>
+            <div class="Resources">
+                <div class="resource-grid">
+                    <div class="resource-item">
+                        <input type="checkbox" name="projector" id="projector">
+                        <label for="projector">Projector</label>
+                    </div>
+
+                    <div class="resource-item">
+                        <input type="checkbox" name="whiteboard" id="whiteboard">
+                        <label for="whiteboard">Whiteboard</label>
+                    </div>
+
+                    <div class="resource-item">
+                        <input type="checkbox" name="sound-system" id="sound-system">
+                        <label for="sound-system">Sound System</label>
+                    </div>
+
+                    <div class="resource-item">
+                        <input type="checkbox" name="microphones" id="microphones">
+                        <label for="microphones">Microphones</label>
+                    </div>
+
+                    <div class="resource-item">
+                        <input type="checkbox" name="podium" id="podium">
+                        <label for="podium">Podium</label>
+                    </div>
+
+                    <div class="resource-item">
+                        <input type="checkbox" name="catering" id="catering">
+                        <label for="catering">Catering Table</label>
+                    </div>
+                </div>
+                <br><br>
+                <div>
+                    <label for="other">Other</label>
+                    <input type="text" name="other" id="other" placeholder="Specify other resources">
+                </div>
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="book">Submit</button>
+
+</body>
+
+</html>
