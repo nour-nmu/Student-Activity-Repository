@@ -1,154 +1,228 @@
-.head {
-    display: grid;
-    margin: 10% auto 10%;
-    position: absolute;
-    top: -52px;
-    right: 0px;
-    bottom: 0px;
-    left: 0;
-    gap: 15px;
-    width: 921.6px;
-    height: fit-content;
-}
+        /* ===== GLOBAL ===== */
+        body {
+            margin: 0;
+            background: #0d1117;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
 
-form {
-    margin: 10% auto;
-    position: absolute;
-    top: 110px;
-    right: 0px;
-    bottom: 0px;
-    left: 0;
-    height: fit-content;
-    border: 1px solid #233445;
-    background-color: #121d26;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    padding: 30px;
-    width: 921.6px;
-}
+        .head {
+            padding: 25px 30px;
+            border-bottom: 1px solid #21262d;
+        }
 
-form h2 {
-    color: #ffffff;
-    font-size: 36px;
-    margin-bottom: 20px;
 
-}
+        .container {
+            padding: 25px 30px;
+        }
 
-form label {
-    color: #859eb8;
-    font-size: 20px;
-    display: block;
-    margin-bottom: 0px;
-}
+        /* ===== TOP CONTROLS ===== */
+        .top-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-.name,
-.event,
-.description,
-.location,
-.date,
-.target,
-.Resources {
-    text-align: left;
-    margin-bottom: 20px;
-}
+        .top-controls h2 {
+            margin: 0 20px;
+            font-size: 22px;
+            color: #c9d1d9;
+        }
 
-.event-details input,
-.event-details textarea,
-.event-details select,
-.logistics input,
-.date input,
-.resources input {
-    padding: 18px;
-    width: 100%;
-    margin-bottom: 5px;
-    box-sizing: border-box;
-    background-color: #171e2a;
-    border: none;
-    border-radius: 10px;
-    color: white;
-}
+        /* Buttons */
+        button {
+            padding: 8px 14px;
+            background: #21262d;
+            border: 1px solid #30363d;
+            color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
 
-.Resources input {
-    display: flex;
-    border: 1px solid black;
-    border-radius: 10px;
-}
+        button:hover {
+            background: #30363d;
+        }
 
-/* Resource checkbox grid */
-.resource-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-top: 12px;
-}
+        #resetBtn {
+            background: #d1384a;
+            margin-left: 10px;
+        }
 
-.resource-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 14px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-}
+        #resetBtn:hover {
+            background: #d1384aa4;
+        }
 
-.resource-item label {
-    color: #d9eefc;
-    font-size: 16px;
-    cursor: pointer;
-}
+        /* Search Bar */
+        .search input {
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            width: 220px;
+            background: #161b22;
+            color: #c9d1d9;
+        }
 
-/* custom checkbox appearance */
-.resource-item input[type="checkbox"] {
-    appearance: none;
-    width: 16px;
-    height: 16px;
-    border-radius: 4px;
-    border: 2px solid rgba(255, 255, 255, 0.07);
-    ;
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-}
+        .search input:focus {
+            outline: none;
+            border-color: #58a6ff;
+        }
 
-.resource-item input[type="checkbox"]:checked {
-    background: #137fec;
-    border-color: #137fec;
-}
+        /* ===== CALENDAR ===== */
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 12px;
+            margin-top: 10px;
+        }
 
-.resource-item input[type="checkbox"]:checked::after {
-    content: "";
-    position: absolute;
-    left: 15px;
-    top: 10px;
-    width: 4px;
-    height: 8px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
+        /* Day-of-week header */
+        .day-header {
+            background: transparent;
+            padding: 12px;
+            text-align: center;
+            border-radius: 6px;
+            font-weight: 700;
+            color: #707b88;
+            font-size: 14px;
+        }
 
-.book {
-    width: 30%;
-    height: 50px;
-    border-radius: 10px;
-    box-sizing: border-box;
-    border: none;
-    background-color: #137fec;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    margin-left: 70%;
-}
+        /* Day Cells */
+        .day {
+            background: #161b22;
+            height: 120px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #1f242a;
+            transition: 0.2s;
+            position: relative;
+            cursor: pointer;
+        }
 
-@media (max-width: 900px) {
-    .resource-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+        .day:hover {
+            background: #1d2330;
+        }
 
-@media (max-width: 560px) {
-    .resource-grid {
-        grid-template-columns: 1fr;
-    }
-}
+        .day strong {
+            font-size: 16px;
+            color: #9ba3af;
+        }
+
+        .day.active {
+            border: 2px solid #3b82f6;
+            background: #1e2736;
+        }
+
+        /* Events */
+        .event {
+            background: #3b82f6;
+            padding: 3px 6px;
+            font-size: 12px;
+            border-radius: 6px;
+            margin-top: 7px;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            transition: 0.2s;
+        }
+
+        .event:hover {
+            background: #2563eb;
+        }
+
+        /* ===== POPUP ===== */
+        .popup-bg {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup {
+            background: #161b22;
+            width: 340px;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #30363d;
+            animation: fadeIn 0.25s ease-out;
+        }
+
+        .popup h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .popup p {
+            color: #9ba3af;
+        }
+
+        /* Popup image */
+        .popup img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            display: none;
+        }
+
+        .popup button {
+            width: 100%;
+            margin-top: 15px;
+            background: #3b82f6;
+            border: none;
+        }
+
+        .popup button:hover {
+            background: #2563eb;
+        }
+
+        /* Fade-in Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Popup background (unchanged) */
+        #popupBg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+            /* <-- allows scrolling if popup exceeds screen */
+        }
+
+        /* Popup main box */
+        #popup {
+            background: #111a24;
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 420px;
+            width: 100%;
+            max-height: 90vh;
+            /* <-- stops popup from overflowing */
+            overflow-y: auto;
+            /* <-- enables scrolling inside popup */
+        }

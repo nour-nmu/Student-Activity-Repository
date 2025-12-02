@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Activities Calendar</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/event.css">
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" class="LOGO">
+            <img src="assets/download.jpg" alt="University images" />
+            <h1>SAR NMU</h1>
+        </a>
+        <ul>
+            <li>
+                <a href="events.html">
+                    Events Calendar
+                </a>
+            </li>
+            <li>
+                <a href="bookevent.html">
+                    Book an Event
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    My Activities
+                </a>
+            </li>
+            <li>
+                <a href="contact-us.html">
+                    Contact Us
+                </a>
+            </li>
+
+            <a href="Login.html">
+                <button class="login">Log In</button>
+            </a>
+
+
+            <a href="register.html">
+                <button class="signup">Sign Up</button>
+            </a>
+
+        </ul>
+    </nav>
+    <div class="head">
+        <h1>Student Activities Calendar</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="top-controls">
+            <div>
+                <button id="prevBtn"><img src="assets/left-chevron.png" alt="prevBtn" width="10px"
+                        height="10px"></button>
+                <button id="todayBtn">Today</button>
+                <button id="nextBtn"><img src="assets/right-chevron.png" alt="nextBtn" width="10px"
+                        height="10px"></button>
+                <button id="resetBtn">Reset</button>
+            </div>
+            <h2 id="monthLabel"></h2>
+
+            <div class="search">
+                <input type="text" id="searchInput" placeholder="Search event...">
+            </div>
+        </div>
+
+        <div class="calendar" id="calendar"></div>
+
+    </div>
+    <!-- Event Popup -->
+    <div class="popup-bg" id="popupBg">
+        <div class="popup">
+            <img id="popupImg" src="" alt="Event image" />
+            <h3 id="popupTitle"></h3>
+            <p id="popupDate"></p>
+            <p id="popupDesc"></p>
+
+            <button id="reserveBtn">Reserve</button>
+            <button id="closeBtn" style="margin-top: 10px;">Close</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>

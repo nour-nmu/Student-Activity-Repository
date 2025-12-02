@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book An Event</title>
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/event.css">
-    <script src="app.js"></script>
+    <link rel="stylesheet" href="css/book.css">
+
 </head>
 
 <body>
@@ -18,7 +18,7 @@
         </a>
         <ul>
             <li>
-                <a href="#">
+                <a href="events.html">
                     Events Calendar
                 </a>
             </li>
@@ -54,7 +54,7 @@
         <h1>Book a New Event or Activity</h1>
         <p>Please Fill out the form below to reserve your spot.</p>
     </div>
-    <form action="#" method="post">
+    <form id="bookForm" action="#" method="post">
         <h2>Event Details</h2>
         <hr>
         <div class="event-details">
@@ -76,6 +76,10 @@
             <label for="description">Event Description</label>
             <textarea id="description" name="description" rows="4"
                 placeholder="Provide a brief description of the event..." required></textarea><br><br>
+
+            <label for="eventImage">Event Image (optional):</label><br>
+            <input type="file" id="eventImage" name="eventImage" accept="image/*">
+            <span>Upload a JPG, PNG, or other image format</span><br><br>
 
         </div>
 
@@ -136,7 +140,11 @@
         </div>
         <br>
         <button type="submit" class="book">Submit</button>
+    </form>
 
+    <script src="book.js">
+    </script>
+    <script src="app.js"></script>
 </body>
 
 </html>
