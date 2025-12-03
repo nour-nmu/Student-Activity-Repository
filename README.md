@@ -188,7 +188,7 @@ This is a university project for New Mansoura University. For suggestions or imp
 
 ## 📧 Contact
 
-- **Email**: support@nmu.edu.eg
+- **Email**: nourelghorouri9@gmail.com
 - **Location**: International Coastal Road, New Mansoura City, Dakahlia Governate, Egypt
 - **Social Media**: 
   - [LinkedIn](https://www.linkedin.com/in/nour-elghorouri/)
@@ -197,7 +197,7 @@ This is a university project for New Mansoura University. For suggestions or imp
 
 ## 📄 License
 
-This project is developed for New Mansoura University. All rights reserved.
+This project is developed for the New Mansoura University web project.
 
 ## 🎯 Future Enhancements
 
