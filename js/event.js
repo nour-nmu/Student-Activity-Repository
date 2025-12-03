@@ -5,7 +5,7 @@ const defaultEvents = [
     { title: "Sports Day", date: "2025-12-08", time: "2:00 PM", desc: "Annual university sports competitions.", img: "assets/soccer-team.jpg" },
     { title: "Robotic Surgery Demo", date: "2025-12-11", time: "3:00 PM", desc: "Robotic-assisted surgical demo.", img: "assets/Ai-in-medicine.jpg" },
     { title: "Photography Workshop", date: "2025-12-14", time: "10:00 AM", desc: "Camera basics & composition.", img: "assets/photography.jpg" },
-    { title: "Baking Marathon", date: "2025-12-20", time: "9:00 AM", desc: "All-day baking event.", img: "assets/baking.jpg" },
+    { title: "Baking Marathon", date: "2025-11-20", time: "9:00 AM", desc: "All-day baking event.", img: "assets/baking.jpg" },
     { title: "Networking Night", date: "2025-12-24", time: "6:00 PM", desc: "Meet recruiters, CV reviews.", img: "assets/tech-summit.jpeg" }
 ];
 
@@ -206,5 +206,37 @@ popupBg.onclick = e => {
     }
 };
 
+// ===============================
+// CHECK URL PARAMETERS FOR DATE
+// ===============================
+function getURLParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+// Check if a date was passed in the URL (from archive page)
+const dateParam = getURLParameter('date');
+if (dateParam) {
+    try {
+        // Parse the date string (format: YYYY-MM-DD)
+        const dateParts = dateParam.split('-');
+        if (dateParts.length === 3) {
+            const year = parseInt(dateParts[0]);
+            const month = parseInt(dateParts[1]) - 1; // Month is 0-11
+            const day = parseInt(dateParts[2]);
+            currentDate = new Date(year, month, day);
+        }
+    } catch (error) {
+        console.log('Error parsing date from URL:', error);
+    }
+}
+
 // initial render
 renderCalendar();
+
+// Highlight the date if it was passed in URL
+if (dateParam) {
+    setTimeout(function() {
+        highlightDate(dateParam);
+    }, 100);
+}

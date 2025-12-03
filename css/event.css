@@ -55,18 +55,35 @@
         }
 
         /* Search Bar */
+        .search {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            width: 20px;
+            height: 20px;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
         .search input {
-            padding: 10px 12px;
+            width: 100%;
+            padding: 12px 15px 12px 45px;
             border-radius: 8px;
             border: 1px solid #30363d;
-            width: 220px;
             background: #161b22;
             color: #c9d1d9;
+            font-size: 16px;
+            transition: border-color 0.2s;
         }
 
         .search input:focus {
             outline: none;
-            border-color: #58a6ff;
+            border-color: #137fec;
         }
 
         /* ===== CALENDAR ===== */

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Archive</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/archive.css">
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" class="LOGO">
+            <img src="assets/download.jpg" alt="University images" />
+            <h1>SAR NMU</h1>
+        </a>
+        <ul>
+            <li>
+                <a href="events.html">Events Calendar</a>
+            </li>
+            <li>
+                <a href="bookevent.html">Book an Event</a>
+            </li>
+            <li>
+                <a href="archive.html">Events Archive</a>
+            </li>
+            <li>
+                <a href="contact-us.html">Contact Us</a>
+            </li>
+
+            <a href="Login.html">
+                <button class="login">Log In</button>
+            </a>
+
+            <a href="register.html">
+                <button class="signup">Sign Up</button>
+            </a>
+        </ul>
+    </nav>
+
+    <div class="archive-container">
+        <div class="archive-header">
+            <h1>Events Archive</h1>
+            <p>Browse and access Events all over the university from past or future</p>
+        </div>
+
+        <div class="search-filters">
+            <div class="search-bar">
+                <img src="assets/search.png" alt="Search" class="search-icon">
+                <input type="text" id="searchInput" placeholder="Search by event name...">
+            </div>
+            <div class="filters">
+                <select id="dateRangeFilter">
+                    <option value="all" >Date Range</option>
+                    <option value="2026">2026</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="custom">Custom Range</option>
+                </select>
+                <select id="categoryFilter">
+                    <option value="all">Category: All</option>
+                    <option value="lecture">Lecture</option>
+                    <option value="seminar">Seminar</option>
+                    <option value="workshop">Workshop</option>
+                    <option value="club-meeting">Club Meeting</option>
+                    <option value="event">Event</option>
+                </select>
+                <select id="facultyFilter">
+                    <option value="all">Faculty: All</option>
+                    <option value="engineering">Engineering</option>
+                    <option value="medicine">Medicine</option>
+                    <option value="arts">Arts</option>
+                    <option value="science">Science</option>
+                    <option value="business">Business</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="custom-date-range" id="customDateRange" style="display: none;">
+            <input type="date" id="startDate" placeholder="Start Date">
+            <input type="date" id="endDate" placeholder="End Date">
+            <button id="applyDateRange">Apply</button>
+        </div>
+
+        <div class="events-grid" id="eventsGrid">
+            <!-- Events will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/archive.js"></script>
+</body>
+
+</html>
+
