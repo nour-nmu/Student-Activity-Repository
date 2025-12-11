@@ -52,14 +52,13 @@
             </div>
             <div class="filters">
                 <select id="dateRangeFilter">
-                    <option value="all" >Date Range</option>
+                    <option value="all">Date Range</option>
                     <option value="2026">2026</option>
                     <option value="2025">2025</option>
                     <option value="2024">2024</option>
                     <option value="2023">2023</option>
                     <option value="2022">2022</option>
                     <option value="2021">2021</option>
-                    <option value="custom">Custom Range</option>
                 </select>
                 <select id="categoryFilter">
                     <option value="all">Category: All</option>
@@ -69,31 +68,67 @@
                     <option value="club-meeting">Club Meeting</option>
                     <option value="event">Event</option>
                 </select>
-                <select id="facultyFilter">
-                    <option value="all">Faculty: All</option>
-                    <option value="engineering">Engineering</option>
-                    <option value="medicine">Medicine</option>
-                    <option value="arts">Arts</option>
-                    <option value="science">Science</option>
-                    <option value="business">Business</option>
-                </select>
             </div>
         </div>
 
-        <div class="custom-date-range" id="customDateRange" style="display: none;">
-            <input type="date" id="startDate" placeholder="Start Date">
-            <input type="date" id="endDate" placeholder="End Date">
-            <button id="applyDateRange">Apply</button>
-        </div>
 
         <div class="events-grid" id="eventsGrid">
             <!-- Events will be dynamically inserted here -->
         </div>
     </div>
+    <footer>
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                        <h3>About SAR App</h3>
+                    </td>
+                    <td>
+                        <h3>Quick Links</h3>
+                    </td>
+                    <td>
+                        <h3>Contact Us</h3>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p class="about">
+                            The Student Activity Repository (SAR) for New Mansoura University <br>is your go-to
+                            platform
+                            for discovering and managing student activities, events, <br>and clubs on campus.
+                        </p>
+                    </td>
+                    <td>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Events Calendar</a></li>
+                            <li><a href="#">Reserve a space</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">My Activities</a></li>
+                        </ul>
+                    </td>
+                    </ul>
+                    <td>
+                        <p>Email: support@nmu.edu.eg <br>Location: International Coastal Road,<br>New Mansoura
+                            City,<br>Dakahlia Governate, Egypt
+                        </p>
+                        <a href="https://www.linkedin.com/in/nour-elghorouri/"><img src="assets/linkedin1.png"
+                                alt="LinkedIn" width="40" height="40"></a>
+                        <a href="https://www.facebook.com/eng.nourelghorouri"><img src="assets/facebook1.png"
+                                alt="facebook" width="40" height="40"></a>
+                        <a href="https://www.instagram.com/eng.nourelghorouri/"><img src="assets/instagram1.png"
+                                alt="Instagram" width="40" height="40"></a>
+                        <br><br><br>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </footer>
 
     <script src="js/app.js"></script>
     <script src="js/archive.js"></script>
 </body>
 
 </html>
-

@@ -1,100 +1,77 @@
-// Handle form submission: save a new event to localStorage and redirect to events page
+// -----------------------------
+// ADD EVENT FORM (Simplified)
+// -----------------------------
 (function () {
-    const form = document.getElementById('bookForm');
+    const form = document.getElementById("bookForm");
     if (!form) return;
 
-    form.addEventListener('submit', function (e) {
+    form.addEventListener("submit", e => {
         e.preventDefault();
 
-        const title = document.getElementById('name').value.trim();
-        const type = document.getElementById('event').value;
-        const desc = document.getElementById('description').value.trim();
-        const location = document.getElementById('location').value.trim();
-        const datetime = document.getElementById('date').value; // e.g. 2025-12-15T14:30
-        const other = document.getElementById('other').value.trim();
-        const imageInput = document.getElementById('eventImage');
+        const title = id("name").value.trim();
+        const type = id("event").value;
+        const desc = id("description").value.trim();
+        const location = id("location").value.trim();
+        const datetime = id("date").value;  // 2025-12-15T14:30
+        const other = id("other").value.trim();
+        const image = id("eventImage");
 
         if (!title || !datetime) {
-            alert('Please fill required fields');
+            alert("Please fill required fields");
             return;
         }
 
-        // Convert datetime-local to YYYY-MM-DD (local date) and extract time
-        const dateOnly = datetime.split('T')[0];
-        const timeOnly = datetime.split('T')[1]; // HH:MM
+        // Split datetime → date + time
+        const [d, t] = datetime.split("T");
+        let formattedTime = "";
 
-        // Convert 24-hour time to 12-hour format with AM/PM
-        let displayTime = '';
-        if (timeOnly) {
-            const [hours, minutes] = timeOnly.split(':').map(Number);
-            const ampm = hours >= 12 ? 'PM' : 'AM';
-            const displayHours = hours % 12 || 12;
-            displayTime = `${displayHours}:${String(minutes).padStart(2, '0')} ${ampm}`;
+        if (t) {
+            const [h, m] = t.split(":").map(Number);
+            const ampm = h >= 12 ? "PM" : "AM";
+            const hour12 = h % 12 || 12;
+            formattedTime = `${hour12}:${String(m).padStart(2, "0")} ${ampm}`;
         }
 
-        // Build event object (minimal fields used by calendar)
         const newEvent = {
-            title: title,
-            date: dateOnly,
-            time: displayTime,
-            desc: desc || '',
-            location: location || '',
-            type: type || 'event',
-            other: other || '',
-            img: ''
+            title,
+            date: d,
+            time: formattedTime,
+            desc,
+            location,
+            type,
+            other,
+            img: ""
         };
 
-        // Handle image upload: convert to data URL
-        if (imageInput.files && imageInput.files[0]) {
-            const file = imageInput.files[0];
-            const reader = new FileReader();
-
-            reader.onload = function (event) {
-                newEvent.img = event.target.result; // data URL string
-
-                try {
-                    const raw = localStorage.getItem('events');
-                    let arr = [];
-                    if (raw) {
-                        arr = JSON.parse(raw);
-                        if (!Array.isArray(arr)) arr = [];
-                    }
-                    arr.push(newEvent);
-                    localStorage.setItem('events', JSON.stringify(arr));
-
-                    // Confirmation and redirect to events page where calendar reads localStorage
-                    alert('Event submitted with image — redirecting to calendar');
-                    window.location.href = 'events.html';
-                } catch (err) {
-                    console.error('Failed to save event', err);
-                    alert('Failed to save event. See console for details.');
-                }
-            };
-
-            reader.onerror = function () {
-                alert('Failed to read image file.');
-            };
-
-            reader.readAsDataURL(file);
-        } else {
-            // No image, save without it
+        // Save event to localStorage
+        const saveEvent = () => {
             try {
-                const raw = localStorage.getItem('events');
-                let arr = [];
-                if (raw) {
-                    arr = JSON.parse(raw);
-                    if (!Array.isArray(arr)) arr = [];
-                }
+                const raw = localStorage.getItem("events");
+                const arr = raw ? JSON.parse(raw) : [];
                 arr.push(newEvent);
-                localStorage.setItem('events', JSON.stringify(arr));
-
-                // Confirmation and redirect to events page where calendar reads localStorage
-                alert('Event submitted — redirecting to calendar');
-                window.location.href = 'events.html';
-            } catch (err) {
-                console.error('Failed to save event', err);
-                alert('Failed to save event. See console for details.');
+                localStorage.setItem("events", JSON.stringify(arr));
+                alert("Event submitted — redirecting...");
+                window.location.href = "events.html";
+            } catch {
+                alert("Failed to save event.");
             }
+        };
+
+        // Handle optional image upload
+        if (image.files && image.files[0]) {
+            const reader = new FileReader();
+            reader.onload = e => {
+                newEvent.img = e.target.result;
+                saveEvent();
+            };
+            reader.onerror = () => alert("Could not load image");
+            reader.readAsDataURL(image.files[0]);
+        } else {
+            saveEvent();
         }
     });
+
+    function id(x) {
+        return document.getElementById(x);
+    }
 })();

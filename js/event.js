@@ -4,9 +4,9 @@
 const defaultEvents = [
     { title: "Sports Day", date: "2025-12-08", time: "2:00 PM", desc: "Annual university sports competitions.", img: "assets/soccer-team.jpg" },
     { title: "Robotic Surgery Demo", date: "2025-12-11", time: "3:00 PM", desc: "Robotic-assisted surgical demo.", img: "assets/Ai-in-medicine.jpg" },
-    { title: "Photography Workshop", date: "2025-12-14", time: "10:00 AM", desc: "Camera basics & composition.", img: "assets/photography.jpg" },
-    { title: "Baking Marathon", date: "2025-11-20", time: "9:00 AM", desc: "All-day baking event.", img: "assets/baking.jpg" },
-    { title: "Networking Night", date: "2025-12-24", time: "6:00 PM", desc: "Meet recruiters, CV reviews.", img: "assets/tech-summit.jpeg" }
+    { title: "Photography Club Meetup", date: "2026-01-07", time: "10:00 AM", desc: "Camera basics & composition.", img: "assets/photography.jpg" },
+    { title: "Charity Bake Event", date: "2026-01-05", time: "9:00 AM", desc: "All-day baking event for charity.", img: "assets/baking.jpg" },
+    { title: "Annual Tech Conference", date: "2025-12-29", time: "6:00 PM", desc: "Meet recruiters, CV reviews.", img: "assets/tech-summit.jpeg" }
 ];
 
 let events = [];
