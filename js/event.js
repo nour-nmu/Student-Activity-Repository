@@ -1,6 +1,3 @@
-// ===============================
-// DEFAULT EVENTS
-// ===============================
 const defaultEvents = [
     { title: "Sports Day", date: "2025-12-08", time: "2:00 PM", desc: "Annual university sports competitions.", img: "assets/soccer-team.jpg" },
     { title: "Robotic Surgery Demo", date: "2025-12-11", time: "3:00 PM", desc: "Robotic-assisted surgical demo.", img: "assets/Ai-in-medicine.jpg" },
@@ -11,9 +8,6 @@ const defaultEvents = [
 
 let events = [];
 
-// ===============================
-// LOCAL STORAGE LOADING
-// ===============================
 function loadEventsFromStorage() {
     try {
         const stored = JSON.parse(localStorage.getItem("events"));
@@ -42,9 +36,6 @@ function resetEventsToDefaults() {
 
 loadEventsFromStorage();
 
-// ===============================
-// CALENDAR RENDERING
-// ===============================
 let currentDate = new Date();
 const today = new Date();
 
@@ -58,7 +49,6 @@ function renderCalendar() {
     document.getElementById("monthLabel").textContent =
         currentDate.toLocaleDateString("en-US", { month: "long", year: "numeric" });
 
-    // Day headers
     ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].forEach(day => {
         const header = document.createElement("div");
         header.className = "day-header";
@@ -69,17 +59,14 @@ function renderCalendar() {
     const firstDay = new Date(y, m, 1).getDay();
     const lastDay = new Date(y, m + 1, 0).getDate();
 
-    // Empty cells
     calendar.innerHTML += "<div></div>".repeat(firstDay);
 
-    // Day cells
     for (let d = 1; d <= lastDay; d++) {
         const dateStr = `${y}-${String(m + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
         const div = document.createElement("div");
         div.className = "day";
         div.innerHTML = `<strong>${d}</strong>`;
 
-        // highlight today
         if (d === today.getDate() && m === today.getMonth() && y === today.getFullYear()) {
             div.classList.add("active");
         }
@@ -88,7 +75,6 @@ function renderCalendar() {
             document.querySelectorAll(".day").forEach(x => x.classList.remove("active")) ||
             div.classList.add("active");
 
-        // add events inside day cell
         events.filter(e => e.date === dateStr).forEach(ev => {
             const eDiv = document.createElement("div");
             eDiv.className = "event";
@@ -100,10 +86,6 @@ function renderCalendar() {
         calendar.appendChild(div);
     }
 }
-
-// ===============================
-// SEARCH
-// ===============================
 document.getElementById("searchInput").addEventListener("input", function () {
     const t = this.value.toLowerCase();
     const match = events.find(e => e.title.toLowerCase().includes(t));
@@ -124,10 +106,6 @@ function highlightDate(dateStr) {
         return n && parseInt(n.textContent) === day;
     })?.classList.add("active");
 }
-
-// ===============================
-// NAVIGATION
-// ===============================
 document.getElementById("todayBtn").onclick = () => {
     currentDate = new Date();
     renderCalendar();
@@ -146,9 +124,6 @@ document.getElementById("nextBtn").onclick = () => {
 document.getElementById("resetBtn").onclick = () =>
     confirm("Restore default events?") && resetEventsToDefaults();
 
-// ===============================
-// POPUP
-// ===============================
 const popupBg = document.getElementById("popupBg");
 const popupImg = document.getElementById("popupImg");
 const popupTitle = document.getElementById("popupTitle");
@@ -206,23 +181,18 @@ popupBg.onclick = e => {
     }
 };
 
-// ===============================
-// CHECK URL PARAMETERS FOR DATE
-// ===============================
 function getURLParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
 }
 
-// Check if a date was passed in the URL (from archive page)
 const dateParam = getURLParameter('date');
 if (dateParam) {
     try {
-        // Parse the date string (format: YYYY-MM-DD)
         const dateParts = dateParam.split('-');
         if (dateParts.length === 3) {
             const year = parseInt(dateParts[0]);
-            const month = parseInt(dateParts[1]) - 1; // Month is 0-11
+            const month = parseInt(dateParts[1]) - 1;
             const day = parseInt(dateParts[2]);
             currentDate = new Date(year, month, day);
         }
@@ -231,12 +201,10 @@ if (dateParam) {
     }
 }
 
-// initial render
 renderCalendar();
 
-// Highlight the date if it was passed in URL
 if (dateParam) {
-    setTimeout(function() {
+    setTimeout(function () {
         highlightDate(dateParam);
     }, 100);
 }

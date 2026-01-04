@@ -1,6 +1,3 @@
-// -----------------------------
-// ADD EVENT FORM (Simplified)
-// -----------------------------
 (function () {
     const form = document.getElementById("bookForm");
     if (!form) return;
@@ -12,7 +9,7 @@
         const type = id("event").value;
         const desc = id("description").value.trim();
         const location = id("location").value.trim();
-        const datetime = id("date").value;  // 2025-12-15T14:30
+        const datetime = id("date").value;
         const other = id("other").value.trim();
         const image = id("eventImage");
 
@@ -21,7 +18,6 @@
             return;
         }
 
-        // Split datetime → date + time
         const [d, t] = datetime.split("T");
         let formattedTime = "";
 
@@ -43,7 +39,6 @@
             img: ""
         };
 
-        // Save event to localStorage
         const saveEvent = () => {
             try {
                 const raw = localStorage.getItem("events");
@@ -57,7 +52,6 @@
             }
         };
 
-        // Handle optional image upload
         if (image.files && image.files[0]) {
             const reader = new FileReader();
             reader.onload = e => {

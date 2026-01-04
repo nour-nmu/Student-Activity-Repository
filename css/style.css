@@ -160,7 +160,6 @@
 
 .activities-card img {
     width: 100%;
-    display: block;
     height: 150px;
     object-fit: cover;
 }
@@ -169,7 +168,6 @@
     margin-top: 10px;
 }
 
-/* Card wrapper for each activity item */
 .activities-card .card-item {
     background-color: #0b2130;
     border-radius: 12px;
@@ -222,7 +220,7 @@
 .activities-card .learn-btn {
     margin-top: 14px;
     background: rgba(255, 255, 255, 0.06);
-    color: #eaf6ff;
+    color: white;
     border: 0;
     padding: 12px 16px;
     border-radius: 10px;

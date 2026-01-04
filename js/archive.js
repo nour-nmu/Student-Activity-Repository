@@ -1,29 +1,20 @@
-// -----------------------------
-// ARCHIVE PAGE (Simplified, No Faculty Filter)
-// -----------------------------
-
 let allEvents = [];
 let filteredEvents = [];
 
-// -----------------------------
-// LOAD EVENTS
-// -----------------------------
+function id(i) {
+    return document.getElementById(i);
+}
+
 function loadEvents() {
     try {
         const stored = localStorage.getItem("events");
         allEvents = stored ? JSON.parse(stored) : [];
 
-        // Fix missing fields
         allEvents.forEach(e => {
-            e.category = e.category || e.type || 'event';
-
-            if (!e.date) {
-                const t = new Date();
-                e.date = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`;
-            }
+            e.category = e.type || 'event';
         });
 
-        // Newest first
+
         allEvents.sort((a, b) => new Date(b.date) - new Date(a.date));
     } catch {
         allEvents = [];
@@ -32,12 +23,8 @@ function loadEvents() {
     filteredEvents = [...allEvents];
 }
 
-// -----------------------------
-// SETUP FILTERS
-// -----------------------------
 function setupFilters() {
     const search = id("searchInput");
-    const dateRange = id("dateRangeFilter");
     const category = id("categoryFilter");
     const applyDate = id("applyDateRange");
 
@@ -46,49 +33,34 @@ function setupFilters() {
     if (category) category.addEventListener("change", applyFilters);
     if (applyDate) applyDate.addEventListener("click", applyFilters);
 
-    // Auto-refresh if events updated
     setInterval(() => {
         const stored = localStorage.getItem("events");
-        if (stored && stored !== JSON.stringify(allEvents)) {
+        if (stored !== JSON.stringify(allEvents)) {
             loadEvents();
             applyFilters();
         }
-    }, 1000);
+    }, 10000);
 }
 
-// -----------------------------
-// APPLY FILTERS
-// -----------------------------
 function applyFilters() {
     const search = id("searchInput").value.toLowerCase();
     const dateRange = id("dateRangeFilter").value;
     const category = id("categoryFilter").value;
-    const start = id("startDate").value;
-    const end = id("endDate").value;
 
     filteredEvents = allEvents.filter(e => {
         const title = (e.title || "").toLowerCase();
         const year = e.date.split("-")[0];
+        const eventCategory = (e.category || e.type || 'event').toLowerCase();
 
         if (search && !title.includes(search)) return false;
-        if (category !== "all" && e.category !== category) return false;
-
-        if (dateRange === "custom") {
-            if (start && e.date < start) return false;
-            if (end && e.date > end) return false;
-        } else if (dateRange !== "all" && year !== dateRange) {
-            return false;
-        }
+        if (category !== "all" && eventCategory !== category.toLowerCase()) return false;
+        if (dateRange !== "all" && year !== dateRange) return false;
 
         return true;
     });
 
     renderEvents();
 }
-
-// -----------------------------
-// RENDER EVENTS
-// -----------------------------
 function renderEvents() {
     const grid = id("eventsGrid");
     if (!grid) return;
@@ -120,9 +92,6 @@ function renderEvents() {
     }).join("");
 }
 
-// -----------------------------
-// HELPER: FORMAT DATE
-// -----------------------------
 function formatDate(d) {
     if (!d) return "Date TBA";
     try {
@@ -134,20 +103,10 @@ function formatDate(d) {
     }
 }
 
-// -----------------------------
-// HELPER: SHORTER document.getElementById
-// -----------------------------
-function id(i) {
-    return document.getElementById(i);
-}
 
-// -----------------------------
-// START
-// -----------------------------
-function startArchive() {
+
+document.addEventListener("DOMContentLoaded", () => {
     loadEvents();
     setupFilters();
     renderEvents();
-}
-
-document.addEventListener("DOMContentLoaded", startArchive);
+});
